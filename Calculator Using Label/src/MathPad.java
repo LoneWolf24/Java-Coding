@@ -8,6 +8,7 @@ public class MathPad extends JPanel
 	private String [] keyLabels = {"/", "*", "-", "+"};
 	Screen theScreen;
 	double accumReg = 0;
+	private String accumOp = "+";
 	
 	public MathPad(Screen display)
 	{
@@ -28,29 +29,46 @@ public class MathPad extends JPanel
 	
 	private void processMathOp(String mathOpPressed)
 	{
-		accumReg = theScreen.getValue();
-		
-		switch(mathOpPressed)
+		if(accumOp != "")
 		{
-		case "+":
-			double answer = accumReg + accumReg;
-			System.out.println(answer);
-			break;
-		case "-":
-			System.out.println("-");
-			break;
-		case "*":
-			System.out.println("*");
-			break;
-		case "/":
-			System.out.println("/");
-			break;
-		default:
-			System.out.println("Invalid key pressed");
-			break;
+			
+			switch(accumOp)
+			{
+			case "+":
+				System.out.println("+");
+				accumReg = accumReg + theScreen.getValue();
+				break;
+				
+			case "-":		
+				System.out.println("-");
+				accumReg = accumReg - theScreen.getValue();
+				break;
+				
+			case "*":
+				System.out.println("*");
+				accumReg = accumReg * theScreen.getValue();
+				break;
+				
+			case "/":
+				System.out.println("/");
+				accumReg = accumReg / theScreen.getValue();			
+				break;
+				
+			default:
+				System.out.println("Invalid key pressed");
+				break;
+			}
+			theScreen.postValue(accumReg);
+			accumOp = mathOpPressed;
 		}
 		
-		
+		else 
+		{
+			accumReg = theScreen.getValue();
+			accumOp = mathOpPressed;
+			theScreen.startFresh();
+		}
+			
 	}
 	
 	class MathPadKeyPressed implements ActionListener

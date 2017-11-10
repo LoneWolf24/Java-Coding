@@ -5,6 +5,7 @@ public class Screen extends JPanel
 {
 	private JLabel display;
 	private boolean showDecimalPoint = true;
+	private boolean startNewNumber = true;
 	
 	public Screen()
 	{
@@ -28,6 +29,11 @@ public class Screen extends JPanel
 		}
 		else
 		{
+			if(startNewNumber)
+			{
+				displayLine = "0";
+				startNewNumber = false;
+			}
 			if(digit.equals("."))
 			{
 				if(showDecimalPoint)
@@ -56,6 +62,7 @@ public class Screen extends JPanel
 	public void postValue(double value)
 	{
 		display.setText(Double.toString(value));
+		startNewNumber = true;
 	}
 	
 	public double getValue()
@@ -64,5 +71,10 @@ public class Screen extends JPanel
 		double screenValue = Double.parseDouble(displayLine);
 		
 		return(screenValue );
+	}
+	
+	public void startFresh()
+	{
+		startNewNumber = true;
 	}
 }
