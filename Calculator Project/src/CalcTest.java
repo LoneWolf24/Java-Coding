@@ -1,9 +1,11 @@
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
-
 import java.awt.event.*;
 
+//THIS IS JUST A TEST CALC
+//SAVED THIS AS AN EXAMPLE 
+//NEED TO ANLYZE THE CODE
 public class CalcTest 
 {
 
