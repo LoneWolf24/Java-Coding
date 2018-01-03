@@ -38,7 +38,7 @@ class buttonsLabelsPanels extends JPanel implements ActionListener
 {
 	private JPanel panel1, panel2;
 	private JTextField textField;
-	private JButton button1, button2, button3, button4, button5, button6, button7, button8, button9, button0, buttonMinus, buttonPlus, buttonMulitply, buttonDvide, buttonEquals, buttonClear, buttonDel;
+	private JButton button1, button2, button3, button4, button5, button6, button7, button8, button9, button0, buttonDec, buttonMinus, buttonPlus, buttonMulitply, buttonDvide, buttonEquals, buttonClear, buttonDel;
     static double a=0,b=0,result=0;
     static int operator=0;
 	buttonsLabelsPanels()
@@ -54,7 +54,7 @@ class buttonsLabelsPanels extends JPanel implements ActionListener
 		
 		GridBagConstraints gbc = new GridBagConstraints();
 		gbc.insets = new Insets(1, 1, 0, 0);
-		//LABEL
+		//TEXTFIELD
 		textField = new JTextField();
 		textField.setPreferredSize(new Dimension(300, 50)); 
 		textField.setForeground(Color.BLACK);
@@ -111,6 +111,11 @@ class buttonsLabelsPanels extends JPanel implements ActionListener
 		gbc.gridx = 1;
 		gbc.gridy = 3;
 		panel2.add(button0, gbc);
+		//DECIMAL BUTTON
+		buttonDec = new JButton(".");
+		gbc.gridx = 0;
+		gbc.gridy = 3;
+		panel2.add(buttonDec, gbc);
 		//BUTTON Minus (-)
 		buttonMinus = new JButton("-");
 		gbc.gridx = 3;
@@ -133,18 +138,18 @@ class buttonsLabelsPanels extends JPanel implements ActionListener
 		panel2.add(buttonDvide, gbc);
 		//BUTTON EQUALS(=)
 		buttonEquals = new JButton("=");
-		gbc.gridx = 3;
-		gbc.gridy = 4;
+		gbc.gridx = 2;
+		gbc.gridy = 3;
 		panel2.add(buttonEquals, gbc);
 		//CLEAR BUTTON
 		buttonClear = new JButton("Clear");
-		gbc.gridx = 0;
-		gbc.gridy = 3;
+		gbc.gridx = 1;
+		gbc.gridy = 4;
 		panel2.add(buttonClear, gbc);
 		//DELETE BUTTON
 		buttonDel = new JButton("Delete");
 		gbc.gridx = 2;
-		gbc.gridy = 3;
+		gbc.gridy = 4;
 		panel2.add(buttonDel, gbc);
 		
 		button0.addActionListener(this);
@@ -157,6 +162,7 @@ class buttonsLabelsPanels extends JPanel implements ActionListener
 		button7.addActionListener(this);
 		button8.addActionListener(this);
 		button9.addActionListener(this);
+		buttonDec.addActionListener(this);
 		buttonPlus.addActionListener(this);
 		buttonMinus.addActionListener(this);
 		buttonMulitply.addActionListener(this);
@@ -219,6 +225,11 @@ class buttonsLabelsPanels extends JPanel implements ActionListener
 			{
 				textField.setText(textField.getText().concat("9"));
 			}
+			//decimal button
+			if(evt.getSource() == buttonDec)
+			{
+				textField.setText(textField.getText().concat("."));
+			}
 			//button add
 			if(evt.getSource() == buttonPlus)
 			{
@@ -251,7 +262,12 @@ class buttonsLabelsPanels extends JPanel implements ActionListener
 			if(evt.getSource() == buttonEquals)
 			{
 				b = Double.parseDouble(textField.getText());
-		
+				if(textField.getText() == "")
+				{
+					System.out.println("Please enter something");
+				}
+				else
+				{
 					switch(operator)
 					{
 						case 1: result = a+b;
@@ -266,9 +282,10 @@ class buttonsLabelsPanels extends JPanel implements ActionListener
 						case 4: result = a/b;
 						break;
 						
-						default: result=0;
+						default: result=00;
 					}
 					textField.setText(""+result);		
+				}
 			}
 			//clear button
 			if(evt.getSource() == buttonClear)
