@@ -132,7 +132,7 @@ class buttonsLabelsPanels extends JPanel implements ActionListener
 		gbc.gridy = 2;
 		panel2.add(buttonMulitply, gbc);
 		//BUTTON DVIDE(/)
-		buttonDvide = new JButton("/");
+		buttonDvide = new JButton("÷");
 		gbc.gridx = 3;
 		gbc.gridy = 3;
 		panel2.add(buttonDvide, gbc);
