@@ -11,13 +11,14 @@ public class Game
 		
 		System.out.println("***" + secretWord + "***" );		
 		//WELCOME MESSAGE
-		System.out.println("Weclome to Hang!");
+		System.out.println("Weclome to Hang Man!");
 		//LENGHT OF THE SECRET WORD
 		int secretWordLength = secretWord.length();
 		//TELL THE USER HOW MANY LETTER ARE THEY
 		System.out.println("Secret Word has " + secretWordLength + " letters!");
 		//TELL THE USR HOW MANY GUESSES THEY HAVE
 		System.out.println("You have 6 guesses!");
+		System.out.println("Good Luck!");
 		System.out.println("----------------------\n");
 		//PRINT OUT ___
 		char temp[] = new char[secretWordLength]; //Store a temp array which will be displayed to the user
@@ -45,7 +46,7 @@ public class Game
 		    //CHECK IF USR'S GUESS MATCH WITH SECRET WORD
 		    if(usrGuessStr.equals(secretWord))
 		    {
-		    		System.out.println("You Win √");
+		    		System.out.println("BINGO! √");
 		    		boo = false;
 		    }
 		    else if(usrGuessStr.length() > secretWord.length())
