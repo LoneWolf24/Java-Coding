@@ -4,6 +4,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Scanner;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
@@ -62,7 +63,7 @@ class main extends JFrame
 		gbc.gridy = 0;
 		panelCenter.add(startLabel, gbc);
 		//Starting Time Text Box 
-		texBox1 = new JTextArea("", 2, 15);
+		texBox1 = new JTextArea("", 2, 20);
 		gbc.gridx = 2;
 		gbc.gridy = 0;
 		panelCenter.add(texBox1, gbc);
@@ -81,7 +82,7 @@ class main extends JFrame
 		gbc.gridy = 1;
 		panelCenter.add(stopLabel, gbc);
 		//Stopped Time Text Box 
-		texBox2 = new JTextArea("", 2, 15);
+		texBox2 = new JTextArea("", 2, 20);
 		gbc.gridx = 2;
 		gbc.gridy = 1;
 		panelCenter.add(texBox2, gbc);
@@ -96,13 +97,14 @@ class main extends JFrame
 		panelCenter.add(ammountOFtime, gbc);
 		
 		//Time Text Box
-		texBox3 = new JTextArea("", 2, 15);
+		texBox3 = new JTextArea("", 2, 20);
 		gbc.gridx = 2;
 		gbc.gridy = 3;
-		panelCenter.add(texBox3, gbc);
-		
+		panelCenter.add(texBox3, gbc);	
 		//************************************************************
 		
+		
+		//**********************EXTRA BUTTONS******************
 		//Button Clear
 		buttonClr = new JButton("Clear");
 		gbc.gridx = 1;
@@ -113,6 +115,8 @@ class main extends JFrame
 		gbc.gridx = 2;
 		gbc.gridy = 4;
 		panelCenter.add(buttonExit, gbc);
+		//*****************************************************
+		
 		
 		//**********************FUNCTIONS**********************
 		buttonStart.addActionListener(new buttonStart());
@@ -195,5 +199,3 @@ class main extends JFrame
 		}
 	}
 }
-
-
